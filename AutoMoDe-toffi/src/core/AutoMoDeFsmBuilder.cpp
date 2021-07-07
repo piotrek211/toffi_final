@@ -305,20 +305,38 @@ namespace argos {
 			case 0:
 				switch(param_type){	
 					case 0:
-						vecPossibleParameters = {"rwm", "att", "rep", "cle", "clr", "vel"};
+						vecPossibleParameters.push_back("rwm");
+						vecPossibleParameters.push_back("att");
+						vecPossibleParameters.push_back("rep");
+						vecPossibleParameters.push_back("cle");
+						vecPossibleParameters.push_back("clr");
+						vecPossibleParameters.push_back("vel");
+						//vecPossibleParameters = {"rwm", "att", "rep", "cle", "clr", "vel"};
 						break;
 					case 1:
-						vecPossibleParameters = {"p", "w", "l"};
+						vecPossibleParameters.push_back("p");
+						vecPossibleParameters.push_back("w");
+						vecPossibleParameters.push_back("l");
+						//vecPossibleParameters = {"p", "w", "l"};
 						break;
 				}
 				break;
 			case 1:
 				switch(param_type){	
 					case 0:
-						vecPossibleParameters = {"rwm", "att", "rep", "cle", "clr", "vel"};
+						vecPossibleParameters.push_back("rwm");
+						vecPossibleParameters.push_back("att");
+						vecPossibleParameters.push_back("rep");
+						vecPossibleParameters.push_back("cle");
+						vecPossibleParameters.push_back("clr");
+						vecPossibleParameters.push_back("vel");
+						//vecPossibleParameters = {"rwm", "att", "rep", "cle", "clr", "vel"};
 						break;
 					case 1:
-						vecPossibleParameters = {"p", "w", "l", "t"};
+						vecPossibleParameters.push_back("p");
+						vecPossibleParameters.push_back("w");
+						vecPossibleParameters.push_back("l");
+						//vecPossibleParameters = {"p", "w", "l", "t"};
 						break;
 				}
 				break;
