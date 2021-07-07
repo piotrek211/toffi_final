@@ -281,6 +281,9 @@ namespace argos {
 						case 1:
 							cNewCondition = new AutoMoDeConditionSmartObjectMoving();
 							break;
+						case 2:
+							cNewCondition = new AutoMoDeConditionSmartObjectGrayFloor();
+							break;	
 						case 3:
 							cNewCondition = new AutoMoDeConditionSmartObjectWhiteFloor();
 							break;

@@ -44,6 +44,7 @@
 #include "../smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h"
 #include "../smartobject_modules/AutoMoDeConditionSmartObjectMoving.h"
 #include "../smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h"
+#include "../smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h"
 
 
 

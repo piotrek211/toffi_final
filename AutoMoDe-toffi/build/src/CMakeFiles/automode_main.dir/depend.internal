@@ -31,6 +31,7 @@ src/CMakeFiles/automode_main.dir/AutoMoDeMain.cpp.o
  /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.h
  /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObject.h
  /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+ /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
  /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
  /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
 src/CMakeFiles/automode_main.dir/automode_main_autogen/mocs_compilation.cpp.o

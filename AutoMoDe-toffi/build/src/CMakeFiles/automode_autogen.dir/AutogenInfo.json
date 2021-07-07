@@ -158,6 +158,11 @@
 			"UKNNSDCVDA/moc_AutoMoDeConditionSmartObjectBlackFloor.cpp"
 		],
 		[
+			"/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h",
+			"Mu",
+			"UKNNSDCVDA/moc_AutoMoDeConditionSmartObjectGrayFloor.cpp"
+		],
+		[
 			"/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h",
 			"Mu",
 			"UKNNSDCVDA/moc_AutoMoDeConditionSmartObjectMoving.cpp"
@@ -346,6 +351,10 @@
 		],
 		[
 			"/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp",
+			"Mu"
+		],
+		[
+			"/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp",
 			"Mu"
 		],
 		[

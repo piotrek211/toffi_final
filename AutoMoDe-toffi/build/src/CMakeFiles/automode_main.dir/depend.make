@@ -30,6 +30,7 @@ src/CMakeFiles/automode_main.dir/AutoMoDeMain.cpp.o: ../src/smartobject_modules/
 src/CMakeFiles/automode_main.dir/AutoMoDeMain.cpp.o: ../src/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.h
 src/CMakeFiles/automode_main.dir/AutoMoDeMain.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h
 src/CMakeFiles/automode_main.dir/AutoMoDeMain.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+src/CMakeFiles/automode_main.dir/AutoMoDeMain.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 src/CMakeFiles/automode_main.dir/AutoMoDeMain.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
 src/CMakeFiles/automode_main.dir/AutoMoDeMain.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
 

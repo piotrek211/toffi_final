@@ -473,9 +473,22 @@ src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectMovi
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp.s"
 	cd /home/piotrek/toffi/AutoMoDe-toffi/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp -o CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp.s
 
+src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o: src/CMakeFiles/automode.dir/flags.make
+src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piotrek/toffi/AutoMoDe-toffi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o"
+	cd /home/piotrek/toffi/AutoMoDe-toffi/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o -c /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp
+
+src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.i"
+	cd /home/piotrek/toffi/AutoMoDe-toffi/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp > CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.i
+
+src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.s"
+	cd /home/piotrek/toffi/AutoMoDe-toffi/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp -o CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.s
+
 src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piotrek/toffi/AutoMoDe-toffi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piotrek/toffi/AutoMoDe-toffi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.o"
 	cd /home/piotrek/toffi/AutoMoDe-toffi/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.o -c /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp
 
 src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.i: cmake_force
@@ -520,6 +533,7 @@ automode_OBJECTS = \
 "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObject.cpp.o" \
 "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.o" \
 "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp.o" \
+"CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o" \
 "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.o"
 
 # External object files for target automode
@@ -557,10 +571,11 @@ src/libautomode.so: src/CMakeFiles/automode.dir/epuck_modules/AutoMoDeConditionE
 src/libautomode.so: src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObject.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp.o
+src/libautomode.so: src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/build.make
 src/libautomode.so: src/CMakeFiles/automode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/piotrek/toffi/AutoMoDe-toffi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Linking CXX shared library libautomode.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/piotrek/toffi/AutoMoDe-toffi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Linking CXX shared library libautomode.so"
 	cd /home/piotrek/toffi/AutoMoDe-toffi/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/automode.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

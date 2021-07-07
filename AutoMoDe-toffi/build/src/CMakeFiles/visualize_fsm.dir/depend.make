@@ -30,6 +30,7 @@ src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: ../src/smartobject_
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: ../src/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.h
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
 

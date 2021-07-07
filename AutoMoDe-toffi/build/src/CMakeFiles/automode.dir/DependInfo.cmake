@@ -35,6 +35,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.cpp" "/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.cpp.o"
   "/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObject.cpp" "/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObject.cpp.o"
   "/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp" "/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.o"
+  "/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp" "/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o"
   "/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp" "/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp.o"
   "/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp" "/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.o"
   )

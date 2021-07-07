@@ -105,6 +105,8 @@ AutoMoDeFsmHistory.h
 /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
 ../smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
 /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
+../smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
+/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 string
 -
 ctime
@@ -277,6 +279,10 @@ map
 -
 
 /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+AutoMoDeConditionSmartObject.h
+/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObject.h
+
+/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 AutoMoDeConditionSmartObject.h
 /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObject.h
 

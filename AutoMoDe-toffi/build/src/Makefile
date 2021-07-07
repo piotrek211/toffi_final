@@ -1140,6 +1140,33 @@ smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.s:
 	cd /home/piotrek/toffi/AutoMoDe-toffi/build && $(MAKE) -f src/CMakeFiles/automode.dir/build.make src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.s
 .PHONY : smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.s
 
+smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.o: smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o
+
+.PHONY : smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.o
+
+# target to build an object file
+smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o:
+	cd /home/piotrek/toffi/AutoMoDe-toffi/build && $(MAKE) -f src/CMakeFiles/automode.dir/build.make src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o
+.PHONY : smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o
+
+smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.i: smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.i
+
+.PHONY : smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.i
+
+# target to preprocess a source file
+smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.i:
+	cd /home/piotrek/toffi/AutoMoDe-toffi/build && $(MAKE) -f src/CMakeFiles/automode.dir/build.make src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.i
+.PHONY : smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.i
+
+smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.s: smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.s
+
+.PHONY : smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.s
+
+# target to generate assembly for a file
+smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.s:
+	cd /home/piotrek/toffi/AutoMoDe-toffi/build && $(MAKE) -f src/CMakeFiles/automode.dir/build.make src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.s
+.PHONY : smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.s
+
 smartobject_modules/AutoMoDeConditionSmartObjectMoving.o: smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp.o
 
 .PHONY : smartobject_modules/AutoMoDeConditionSmartObjectMoving.o
@@ -1339,6 +1366,9 @@ help:
 	@echo "... smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.o"
 	@echo "... smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.i"
 	@echo "... smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.s"
+	@echo "... smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.o"
+	@echo "... smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.i"
+	@echo "... smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.s"
 	@echo "... smartobject_modules/AutoMoDeConditionSmartObjectMoving.o"
 	@echo "... smartobject_modules/AutoMoDeConditionSmartObjectMoving.i"
 	@echo "... smartobject_modules/AutoMoDeConditionSmartObjectMoving.s"

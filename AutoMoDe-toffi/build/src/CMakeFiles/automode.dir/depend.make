@@ -32,6 +32,7 @@ src/CMakeFiles/automode.dir/core/AutoMoDeController.cpp.o: ../src/smartobject_mo
 src/CMakeFiles/automode.dir/core/AutoMoDeController.cpp.o: ../src/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.h
 src/CMakeFiles/automode.dir/core/AutoMoDeController.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h
 src/CMakeFiles/automode.dir/core/AutoMoDeController.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+src/CMakeFiles/automode.dir/core/AutoMoDeController.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 src/CMakeFiles/automode.dir/core/AutoMoDeController.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
 src/CMakeFiles/automode.dir/core/AutoMoDeController.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
 
@@ -62,6 +63,7 @@ src/CMakeFiles/automode.dir/core/AutoMoDeFiniteStateMachine.cpp.o: ../src/smarto
 src/CMakeFiles/automode.dir/core/AutoMoDeFiniteStateMachine.cpp.o: ../src/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.h
 src/CMakeFiles/automode.dir/core/AutoMoDeFiniteStateMachine.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h
 src/CMakeFiles/automode.dir/core/AutoMoDeFiniteStateMachine.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+src/CMakeFiles/automode.dir/core/AutoMoDeFiniteStateMachine.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 src/CMakeFiles/automode.dir/core/AutoMoDeFiniteStateMachine.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
 src/CMakeFiles/automode.dir/core/AutoMoDeFiniteStateMachine.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
 
@@ -93,6 +95,7 @@ src/CMakeFiles/automode.dir/core/AutoMoDeFsmBuilder.cpp.o: ../src/smartobject_mo
 src/CMakeFiles/automode.dir/core/AutoMoDeFsmBuilder.cpp.o: ../src/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.h
 src/CMakeFiles/automode.dir/core/AutoMoDeFsmBuilder.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h
 src/CMakeFiles/automode.dir/core/AutoMoDeFsmBuilder.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+src/CMakeFiles/automode.dir/core/AutoMoDeFsmBuilder.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 src/CMakeFiles/automode.dir/core/AutoMoDeFsmBuilder.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
 src/CMakeFiles/automode.dir/core/AutoMoDeFsmBuilder.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
 
@@ -131,6 +134,7 @@ src/CMakeFiles/automode.dir/core/epuck_controller/AutoMoDeControllerEpuck.cpp.o:
 src/CMakeFiles/automode.dir/core/epuck_controller/AutoMoDeControllerEpuck.cpp.o: ../src/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.h
 src/CMakeFiles/automode.dir/core/epuck_controller/AutoMoDeControllerEpuck.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h
 src/CMakeFiles/automode.dir/core/epuck_controller/AutoMoDeControllerEpuck.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+src/CMakeFiles/automode.dir/core/epuck_controller/AutoMoDeControllerEpuck.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 src/CMakeFiles/automode.dir/core/epuck_controller/AutoMoDeControllerEpuck.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
 src/CMakeFiles/automode.dir/core/epuck_controller/AutoMoDeControllerEpuck.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
 
@@ -164,6 +168,7 @@ src/CMakeFiles/automode.dir/core/smartobject_controller/AutoMoDeControllerSmartO
 src/CMakeFiles/automode.dir/core/smartobject_controller/AutoMoDeControllerSmartObject.cpp.o: ../src/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.h
 src/CMakeFiles/automode.dir/core/smartobject_controller/AutoMoDeControllerSmartObject.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h
 src/CMakeFiles/automode.dir/core/smartobject_controller/AutoMoDeControllerSmartObject.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+src/CMakeFiles/automode.dir/core/smartobject_controller/AutoMoDeControllerSmartObject.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 src/CMakeFiles/automode.dir/core/smartobject_controller/AutoMoDeControllerSmartObject.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
 src/CMakeFiles/automode.dir/core/smartobject_controller/AutoMoDeControllerSmartObject.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
 
@@ -278,6 +283,11 @@ src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectBlac
 src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h
 src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp
 src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
+
+src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o: ../src/modules_general/AutoMoDeCondition.h
+src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h
+src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp
+src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 
 src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp.o: ../src/modules_general/AutoMoDeCondition.h
 src/CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp.o: ../src/smartobject_modules/AutoMoDeConditionSmartObject.h

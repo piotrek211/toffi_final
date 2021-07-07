@@ -33,6 +33,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.cpp.o"
   "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObject.cpp.o"
   "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp.o"
+  "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp.o"
   "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp.o"
   "CMakeFiles/automode.dir/smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp.o"
   "libautomode.pdb"
