@@ -66,7 +66,6 @@ namespace argos {
     /****************************************/
 
     CColor AutoMoDeBehaviourSmartObject::RandomColor() {
-        return CColor::RED;
         try{
             CRandom::CRNG* m_pcRng = CRandom::CreateRNG("argos");
             UInt16 size = color_cycle.size();
@@ -83,7 +82,6 @@ namespace argos {
     /****************************************/
 
     CColor AutoMoDeBehaviourSmartObject::NextColor() {
-        std::cout << "TUTAJ " << std::endl;
         CColor current_color = CurrentColor();
         color_index = 0;
         for (color_index = 0; color_index < color_cycle.size(); color_index++) {
