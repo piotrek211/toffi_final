@@ -22,9 +22,7 @@ namespace argos {
 
 		private:
 			Real m_fMovingThreshold;
-			//Real m_fProbability;
-			Real vell = 0.0;
-			int timer = 20;
+			int timer;
 	};
 }
 

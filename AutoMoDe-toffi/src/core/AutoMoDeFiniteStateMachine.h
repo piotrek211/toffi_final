@@ -43,7 +43,6 @@
 #include "../smartobject_modules/AutoMoDeBehaviourSmartObjectLightColor.h"
 #include "../smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h"
 #include "../smartobject_modules/AutoMoDeConditionSmartObjectMoving.h"
-#include "../smartobject_modules/AutoMoDeConditionSmartObjectNotMoving.h"
 #include "../smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h"
 
 
