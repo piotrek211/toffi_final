@@ -43,12 +43,12 @@ int main(int n_argc, char** ppch_argv) {
 
 	bool bReadableFSM = false;
 	//std::map<int, std::vector<std::string>> vecConfigsFsm;
-	std::vector<std::vector<std::string>> vecConfigsFsm;
+	std::vector<std::vector<std::string> > vecConfigsFsm;
 	bool bFsmControllerFound = false;
 	UInt32 unSeed = 0;
 
 	std::vector<AutoMoDeFiniteStateMachine*> vecFsm;
-	std::map<int, std::vector<std::string>>  vecFsmMap;
+	std::map<int, std::vector<std::string> >  vecFsmMap;
 
 	try {
 		// Cutting off the FSM configuration from the command line
@@ -88,7 +88,7 @@ int main(int n_argc, char** ppch_argv) {
 		}
 
 
-		std::map<int, std::vector<std::string>>::iterator it;
+		std::map<int, std::vector<std::string> >::iterator it;
 
 		for(it = vecFsmMap.begin(); it != vecFsmMap.end(); it++){
 			std::cout << (*it).first << ": " << ((*it).second).size() << std::endl;

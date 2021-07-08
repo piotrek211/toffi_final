@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeController.cpp
-AutoMoDeController.h
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeController.h
-
 /home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeController.h
 argos3/core/utility/logging/argos_log.h
 -
@@ -19,10 +15,6 @@ argos3/core/control_interface/ci_controller.h
 /home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFiniteStateMachine.h
 ./AutoMoDeFsmBuilder.h
 /home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFsmBuilder.h
-
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFiniteStateMachine.cpp
-AutoMoDeFiniteStateMachine.h
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFiniteStateMachine.h
 
 /home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFiniteStateMachine.h
 argos3/demiurge/epuck-dao/EpuckDAO.h
@@ -84,10 +76,6 @@ ctime
 algorithm
 -
 
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFsmBuilder.cpp
-AutoMoDeFsmBuilder.h
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFsmBuilder.h
-
 /home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFsmBuilder.h
 AutoMoDeFiniteStateMachine.h
 /home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFiniteStateMachine.h
@@ -120,42 +108,6 @@ sstream
 string
 -
 map
--
-
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/epuck_controller/AutoMoDeControllerEpuck.cpp
-AutoMoDeControllerEpuck.h
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/epuck_controller/AutoMoDeControllerEpuck.h
-
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/epuck_controller/AutoMoDeControllerEpuck.h
-argos3/core/utility/logging/argos_log.h
--
-argos3/core/control_interface/ci_controller.h
--
-argos3/demiurge/epuck-dao/EpuckDAO.h
--
-argos3/demiurge/epuck-dao/ReferenceModel3Dot0.h
--
-../AutoMoDeController.h
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeController.h
-../AutoMoDeFiniteStateMachine.h
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFiniteStateMachine.h
-../AutoMoDeFsmBuilder.h
-/home/piotrek/toffi/AutoMoDe-toffi/src/core/AutoMoDeFsmBuilder.h
-argos3/plugins/robots/e-puck/control_interface/ci_epuck_wheels_actuator.h
--
-argos3/plugins/robots/e-puck/control_interface/ci_epuck_range_and_bearing_sensor.h
--
-argos3/plugins/robots/e-puck/control_interface/ci_epuck_range_and_bearing_actuator.h
--
-argos3/plugins/robots/e-puck/control_interface/ci_epuck_rgb_leds_actuator.h
--
-argos3/plugins/robots/e-puck/control_interface/ci_epuck_proximity_sensor.h
--
-argos3/plugins/robots/e-puck/control_interface/ci_epuck_light_sensor.h
--
-argos3/plugins/robots/e-puck/control_interface/ci_epuck_ground_sensor.h
--
-argos3/plugins/robots/e-puck/control_interface/ci_epuck_omnidirectional_camera_sensor.h
 -
 
 /home/piotrek/toffi/AutoMoDe-toffi/src/core/smartobject_controller/AutoMoDeControllerSmartObject.cpp
@@ -317,10 +269,6 @@ map
 /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
 AutoMoDeConditionSmartObject.h
 /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObject.h
-
-/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp
-AutoMoDeConditionSmartObjectGrayFloor.h
-/home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 
 /home/piotrek/toffi/AutoMoDe-toffi/src/smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
 AutoMoDeConditionSmartObject.h

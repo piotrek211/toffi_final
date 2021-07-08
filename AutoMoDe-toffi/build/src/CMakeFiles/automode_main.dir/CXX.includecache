@@ -6,8 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/piotrek/toffi/AutoMoDe-toffi/build/src/automode_main_autogen/mocs_compilation.cpp
-
 /home/piotrek/toffi/AutoMoDe-toffi/src/AutoMoDeMain.cpp
 argos3/core/simulator/simulator.h
 -

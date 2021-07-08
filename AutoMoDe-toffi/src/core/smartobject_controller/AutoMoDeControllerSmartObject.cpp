@@ -23,6 +23,7 @@ namespace argos {
 		m_bPrintReadableFsm = false;
 		m_strHistoryFolder = "./";
 		m_bFiniteStateMachineGiven = false;
+		init = false;
 	}
 
 	/****************************************/

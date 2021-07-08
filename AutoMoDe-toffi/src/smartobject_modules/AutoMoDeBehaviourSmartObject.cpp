@@ -16,7 +16,10 @@ namespace argos {
    AutoMoDeBehaviourSmartObject::AutoMoDeBehaviourSmartObject() {
         c_CurrentColor = CColor::BLACK;
 		color_index = 0;
-		color_cycle = {CColor::RED, CColor::GREEN, CColor::BLUE};
+        color_cycle.push_back(CColor::RED);
+        color_cycle.push_back(CColor::GREEN);
+        color_cycle.push_back(CColor::BLUE);
+		//color_cycle = {CColor::RED, CColor::GREEN, CColor::BLUE};
 
    }
 	/****************************************/
