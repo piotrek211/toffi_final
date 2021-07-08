@@ -27,8 +27,8 @@
   <!-- *************** -->
   <controllers>
 	<!-- TRANSMITTER -->
-    <automode_controller_epuck id="tuttifrutti"
-                        library="/home/piotrek/toffi/AutoMoDe-tuttifrutti/build/src/libautomode.so">
+    <automode_controller_epuck id="toffi_epuck"
+                        library="/home/piotrek/toffi/AutoMoDe-toffi/build/src/libautomode.so">
       <actuators>
         <epuck_wheels implementation="default" noise_std_dev="0.05"/>
         <epuck_rgb_leds implementation="default" medium="leds"/>
@@ -47,8 +47,8 @@
                                         <!-- From sa -> n0x0 sb = n0x0 sb  , (a > b)-->
     </automode_controller_epuck>
     
-    <automode_controller_smartobject id="tuttifrutti_smart_object"
-                        library="/home/piotrek/toffi/AutoMoDe-tuttifrutti/build/src/libautomode.so">
+    <automode_controller_smartobject id="toffi_smart_object"
+                        library="/home/piotrek/toffi/AutoMoDe-toffi/build/src/libautomode.so">
       <actuators>
      	<smart_object_leds   implementation="default" medium="leds" />
       </actuators>
@@ -89,7 +89,7 @@
     <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0" />
     <entity quantity="8" max_trials="100">
       <e-puck id="epuck">
-       <controller config="tuttifrutti" />
+       <controller config="toffi_epuck" />
       </e-puck>
     </entity>
   </distribute>
@@ -97,17 +97,17 @@
    
     <smart_object id="smart_object1">
     	 <body orientation="0,0,0" position="0,0.4,0" />
-       <controller config="tuttifrutti_smart_object"/>
+       <controller config="toffi_smart_object"/>
       </smart_object>
       
         <smart_object id="smart_object2">
     	 <body orientation="0,0,0" position="0,0.4,0" />
-       <controller config="tuttifrutti_smart_object"/>
+       <controller config="toffi_smart_object"/>
       </smart_object>
       
         <smart_object id="smart_object3">
     	 <body orientation="0,0,0" position="0,0.4,0" />
-       <controller config="tuttifrutti_smart_object"/>
+       <controller config="toffi_smart_object"/>
       </smart_object>
       
       

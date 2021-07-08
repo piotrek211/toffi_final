@@ -104,6 +104,11 @@ class ToffiChLoopFunction: public CoreLoopFunctions {
     CArenaEntity* m_pcArena;
 
     /*
+     * Additional walls of the arena.
+    */
+     std::vector<CWallEntity*> m_pcWalls;
+
+    /*
      * Transition time in sequence experiments
      */
     UInt32 m_unTrnTime;
@@ -141,6 +146,8 @@ class ToffiChLoopFunction: public CoreLoopFunctions {
 
     TRobotStateMap m_tRobotStates;
     TObjectStateMap m_tObjectStates;
+
+
 
 
 };

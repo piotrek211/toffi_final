@@ -176,7 +176,6 @@ void ToffiPsLoopFunction::InitRobotStates() {
 
         m_tRobotStates[pcEpuck].cLastPosition = cEpuckPosition;
         m_tRobotStates[pcEpuck].cPosition = cEpuckPosition;
-        m_tRobotStates[pcEpuck].unItem = 0;
     }
 }
 
@@ -217,8 +216,7 @@ void ToffiPsLoopFunction::InitObjectStates() {
 
             m_tObjectStates[pcSmartObject].cLastPosition = cObjectPosition;
             m_tObjectStates[pcSmartObject].cPosition = cObjectPosition;
-            m_tObjectStates[pcSmartObject].cColor = CColor::BLACK;
-            m_tObjectStates[pcSmartObject].unItem = 0;
+            m_tObjectStates[pcSmartObject].cColor = CColor::BLUE;
         }  
 
     }catch(std::exception &e){
@@ -244,7 +242,6 @@ CVector3 ToffiPsLoopFunction::GetRandomPosition(std::string m_sType) {
     a = b;
     b = temp;
   }
-  //m_fDistributionRadius = m_fRadius;
   Real fPosX = -0.35f + c*m_fDistributionRadius/2 * cos(2 * CRadians::PI.GetValue() * (a/b));
   Real fPosY = d*m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));
 
@@ -317,7 +314,12 @@ void ToffiPsLoopFunction::PositionArena() {
      pcArena->AddWall(*wall_0);       
      pcArena->AddWall(*wall_1);  
      pcArena->AddWall(*wall_2);  
-     pcArena->AddWall(*wall_3);                               
+     pcArena->AddWall(*wall_3);   
+
+     m_pcWalls.push_back(wall_0);
+     m_pcWalls.push_back(wall_1);
+     m_pcWalls.push_back(wall_2);
+     m_pcWalls.push_back(wall_3);                            
 
   AddEntity(*pcArena);
   m_pcArena = pcArena;
@@ -330,6 +332,10 @@ void ToffiPsLoopFunction::RemoveArena() {
     std::ostringstream id;
     id << "arena";
     RemoveEntity(id.str().c_str());
+
+    for (CWallEntity* wall : m_pcWalls) {
+        delete wall;
+    }
 }
 
 /****************************************/

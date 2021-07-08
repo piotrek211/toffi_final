@@ -22,6 +22,7 @@ void CoreLoopFunctions::Init(argos::TConfigurationNode& t_tree, bool b_moveSmart
   try {
     cParametersNode = GetNode(t_tree, "params");
     GetNodeAttributeOrDefault(cParametersNode, "number_robots", m_unNumberRobots, (UInt32) 1);
+    GetNodeAttributeOrDefault(cParametersNode, "number_smart_objects", m_unNumberSmartObjects, (UInt32) 1);
     GetNodeAttributeOrDefault(cParametersNode, "dist_radius_epuck", m_fDistributionRadiusEpuck, (Real) 0);
     GetNodeAttributeOrDefault(cParametersNode, "dist_radius_smart_object", m_fDistributionRadiusSmartObject, (Real) 0);
   } catch(std::exception e) {
@@ -88,4 +89,12 @@ void CoreLoopFunctions::RemoveRobots() {
     id << "epuck" << i;
     RemoveEntity(id.str().c_str());
   }
+
+  for(UInt32 i = 1; i < m_unNumberSmartObjects + 1; ++i) {
+    std::ostringstream id;
+    id << "smart_object" << i;
+    RemoveEntity(id.str().c_str());
+  }
+
+
 }

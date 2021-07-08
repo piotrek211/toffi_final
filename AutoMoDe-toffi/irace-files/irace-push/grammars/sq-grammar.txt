@@ -4,7 +4,6 @@ RWM0   "--rwm0 "  i (1,100) | as.numeric(S0)==0
 ATT0   "--att0 "  r (1,5) | as.numeric(S0) %in% c(4)
 REP0   "--rep0 "  r (1,5) | as.numeric(S0) %in% c(5)
 VEL0   "--vel0 "  c (1.0) | as.numeric(S0) %in% c(8,9,10)
-CLE0   "--cle0 "  c (0,4,5,6) | as.numeric(S0) %in% c(0,1,4,5,8,9)
 CLR0   "--clr0 "  c (1,2,3,4,5,6) | as.numeric(S0) %in% c(8,9,10)
 NumConnections0 "--n0 " i (1,4) | as.numeric(NumStates)>1
 N0x0  "--n0x0 " i   (0,3) | as.numeric(NumConnections0)>0 
@@ -44,7 +43,6 @@ RWM1   "--rwm1 "  i (1,100) | as.numeric(S1)==0
 ATT1   "--att1 "  r (1,5) | as.numeric(S1) %in% c(4)
 REP1   "--rep1 "  r (1,5) | as.numeric(S1) %in% c(5)
 VEL1   "--vel1 "  c (1.0) | as.numeric(S1) %in% c(8,9,10)
-CLE1   "--cle1 "  c (0,4,5,6) | as.numeric(S1) %in% c(0,1,4,5,8,9)
 CLR1   "--clr1 "  c (1,2,3,4,5,6) | as.numeric(S1) %in% c(8,9,10)
 NumConnections1 "--n1 " i (1,4) | as.numeric(NumStates)>1
 N1x0  "--n1x0 " i   (0,3) | as.numeric(NumConnections1)>0 
@@ -84,7 +82,6 @@ RWM2   "--rwm2 "  i (1,100) | as.numeric(S2)==0
 ATT2   "--att2 "  r (1,5) | as.numeric(S2) %in% c(4)
 REP2   "--rep2 "  r (1,5) | as.numeric(S2) %in% c(5)
 VEL2   "--vel2 "  c (1.0) | as.numeric(S2) %in% c(8,9,10)
-CLE2   "--cle2 "  c (0,4,5,6) | as.numeric(S2) %in% c(0,1,4,5,8,9)
 CLR2   "--clr2 "  c (1,2,3,4,5,6) | as.numeric(S2) %in% c(8,9,10)
 NumConnections2 "--n2 " i (1,4) | as.numeric(NumStates)>2
 N2x0  "--n2x0 " i   (0,3) | as.numeric(NumConnections2)>0 
@@ -124,7 +121,6 @@ RWM3   "--rwm3 "  i (1,100) | as.numeric(S3)==0
 ATT3   "--att3 "  r (1,5) | as.numeric(S3) %in% c(4)
 REP3   "--rep3 "  r (1,5) | as.numeric(S3) %in% c(5)
 VEL3   "--vel3 "  c (1.0) | as.numeric(S3) %in% c(8,9,10)
-CLE3   "--cle3 "  c (0,4,5,6) | as.numeric(S3) %in% c(0,1,4,5,8,9)
 CLR3   "--clr3 "  c (1,2,3,4,5,6) | as.numeric(S3) %in% c(8,9,10)
 NumConnections3 "--n3 " i (1,4) | as.numeric(NumStates)>3
 N3x0  "--n3x0 " i   (0,3) | as.numeric(NumConnections3)>0 

@@ -73,10 +73,6 @@ void ToffiPuLoopFunction::Init(TConfigurationNode& t_tree) {
 
     InitObjectStates();
     m_pcArena->SetArenaColor(CColor::BLACK);
-    // m_pcArena->SetWallColor(4,CColor::RED);
-     //m_pcArena->SetBoxColor(3,1,CColor::RED);
-     //m_pcArena->SetBoxColor(1,3,CColor::RED);
-    //SetWallColor();
 
 }
 
@@ -123,28 +119,21 @@ void ToffiPuLoopFunction::Reset() {
     m_tRobotStates.clear();
 
     InitRobotStates();
+    InitObjectStates();
 }
 
 /****************************************/
 /****************************************/
 
 void ToffiPuLoopFunction::PostStep() {
-
     m_unClock = GetSpace().GetSimulationClock();
-   // ScoreControl();
-}
-
-bool ToffiPuLoopFunction::IsExperimentFinished() {
-  /*  if (GetAggregationScore() == 0.0) {
-        return true;
-    }*/
-    return false;
 }
 
 /****************************************/
 /****************************************/
 
 void ToffiPuLoopFunction::PostExperiment() {
+    m_fObjectiveFunction = GetAggregationScore();
     if (m_bMaximization == true){
         LOG << -m_fObjectiveFunction << std::endl;
     }
@@ -165,20 +154,11 @@ Real ToffiPuLoopFunction::GetObjectiveFunction() {
     }
 }
 
-
-/****************************************/
-/****************************************/
-
-void ToffiPuLoopFunction::ScoreControl(){
-    m_fObjectiveFunction += GetAggregationScore();
-}
-
 /****************************************/
 /****************************************/
 
 
 Real ToffiPuLoopFunction::GetAggregationScore() {
-
     UpdateRobotPositions();
     UpdateObject();
     bool bInAgg;
@@ -196,7 +176,7 @@ Real ToffiPuLoopFunction::GetAggregationScore() {
 
 
 bool ToffiPuLoopFunction::IsObjectInAgg(CVector2 tObjectPosition, CColor tObjectColor) {
-    if (tObjectColor == CColor::GREEN){
+    if (tObjectColor == CColor::BLACK){
         return true;
     }
 
@@ -209,75 +189,12 @@ bool ToffiPuLoopFunction::IsObjectInAgg(CVector2 tObjectPosition, CColor tObject
 /****************************************/
 /****************************************/
 
-Real ToffiPuLoopFunction::GetStopScore() {
-
-    UpdateRobotPositions();
-    UpdateObject();
-
-    Real unScore = 0;
-    TRobotStateMap::iterator it;
-    for (it = m_tRobotStates.begin(); it != m_tRobotStates.end(); ++it) {
-        Real d = (it->second.cPosition - it->second.cLastPosition).Length();
-        if (d > 0.0005)
-            unScore+=1;
-    }
-
-    return unScore;
-}
-
-/****************************************/
-/****************************************/
-
-Real ToffiPuLoopFunction::GetMoveScore() {
-
-    UpdateRobotPositions();
-    UpdateObject();
-
-    Real unScore = 0;
-    TRobotStateMap::iterator it;
-    for (it = m_tRobotStates.begin(); it != m_tRobotStates.end(); ++it) {
-        Real d = (it->second.cPosition - it->second.cLastPosition).Length();
-        if (d <= 0.0005)
-            unScore+=1;
-    }
-
-    return unScore;
-}
-
-/****************************************/
-/****************************************/
-
 argos::CColor ToffiPuLoopFunction::GetFloorColor(const argos::CVector2& c_position_on_plane) {
-    Real border = 0.65;
+    Real border = 0.62;
     if(c_position_on_plane.GetX() < -border|| c_position_on_plane.GetX() > border ||
        c_position_on_plane.GetY() < -border || c_position_on_plane.GetY() > border){
         return CColor::WHITE;
     }
- /*   Real radius = 0.3; 
-    Real radiussq = radius * radius;
-    Real center_x = 0.0;
-    Real center_y = 0.0;
-    //0.2 and 0.4
-    if(c_position_on_plane.GetX() > (center_x-radius) &&  c_position_on_plane.GetX() < (center_x+radius) ) {
-        Real x = c_position_on_plane.GetX() - center_x;
-        Real posy = sqrt(radiussq - (x*x));
-        if(c_position_on_plane.GetY() < posy + center_y && c_position_on_plane.GetY() > -posy + center_y){
-                return CColor::BLACK;
-        }
-
-    }*/
-
-    /*if(c_position_on_plane.GetX() > 0.0){
-        return CColor::WHITE;
-    }*/
-
-
-
-
-   /* if(c_position_on_plane.GetX() > (center-radius) &&  c_position_on_plane.GetX() < (center+radius) &&
-        c_position_on_plane.GetY() > (center-radius) && c_position_on_plane.GetY() < (center+radius)){
-        return CColor::WHITE;
-    }*/
     return CColor::GRAY50;
 }
 
@@ -451,6 +368,11 @@ void ToffiPuLoopFunction::PositionArena() {
      pcArena->AddWall(*wall_2);  
      pcArena->AddWall(*wall_3);  
 
+     m_pcWalls.push_back(wall_0);
+     m_pcWalls.push_back(wall_1);
+     m_pcWalls.push_back(wall_2);
+     m_pcWalls.push_back(wall_3);
+
 
 
   AddEntity(*pcArena);
@@ -464,6 +386,10 @@ void ToffiPuLoopFunction::RemoveArena() {
     std::ostringstream id;
     id << "arena";
     RemoveEntity(id.str().c_str());
+
+    for (CWallEntity* wall : m_pcWalls) {
+        delete wall;
+    }
 }
 
 /****************************************/

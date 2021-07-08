@@ -93,6 +93,11 @@ class ToffiPsLoopFunction: public CoreLoopFunctions {
     CArenaEntity* m_pcArena;
 
     /*
+     * Additional walls of the arena.
+    */
+     std::vector<CWallEntity*> m_pcWalls;
+
+    /*
      * Transition time in sequence experiments
      */
     UInt32 m_unTrnTime;
@@ -107,7 +112,6 @@ class ToffiPsLoopFunction: public CoreLoopFunctions {
     struct RobotStateStruct {
         CVector2 cLastPosition;
         CVector2 cPosition;
-        UInt32 unItem;
     };
 
         struct ObjectStateStruct {
@@ -115,7 +119,6 @@ class ToffiPsLoopFunction: public CoreLoopFunctions {
         CVector2 cPosition;
         CColor cColor;
         CColor cLastColor;
-        UInt32 unItem;
 
     };
 

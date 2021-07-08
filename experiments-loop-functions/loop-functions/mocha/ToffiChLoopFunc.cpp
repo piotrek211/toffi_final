@@ -82,6 +82,7 @@ void ToffiChLoopFunction::Reset() {
     m_tRobotStates.clear();
 
     InitRobotStates();
+    InitObjectStates();
 }
 
 
@@ -233,26 +234,9 @@ CVector3 ToffiChLoopFunction::GetRandomPosition(std::string m_sType) {
     a = b;
     b = temp;
   }
-  //m_fDistributionRadius = m_fRadius;
- // Real fPosX = (c * m_fDistributionRadius / 2) + m_fDistributionRadius * cos(2 * CRadians::PI.GetValue() * (a/b));
- // Real fPosY = (d * m_fDistributionRadius / 2) + m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));
- std:: cout << "RADIUS: " << m_fDistributionRadius << std::endl;
   Real fPosX = c*m_fDistributionRadius * cos(2 * CRadians::PI.GetValue() * (a/b));
   Real fPosY = d*m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));
 
-  std::cout << "x: " << fPosX<< std::endl;
-  std::cout << "y: " << fPosY << std::endl;
- /* if (fPosX >= m_fDistributionRadius) {
-      fPosX = m_fDistributionRadius - 0.05f;
-  } else if (fPosX <= -m_fDistributionRadius) {
-      fPosX = m_fDistributionRadius + 0.05f;
-  }
-
-  if (fPosY >= m_fDistributionRadius) {
-      fPosY = m_fDistributionRadius - 0.05f;
-  } else if (fPosY <= -m_fDistributionRadius) {
-      fPosY = m_fDistributionRadius + 0.05f;
-  }*/
  
   return CVector3(fPosX, fPosY, 0);
 }
@@ -333,6 +317,11 @@ void ToffiChLoopFunction::PositionArena() {
      pcArena->AddWall(*wall_2);  
      pcArena->AddWall(*wall_3);  
 
+     m_pcWalls.push_back(wall_0);
+     m_pcWalls.push_back(wall_1);
+     m_pcWalls.push_back(wall_2);
+     m_pcWalls.push_back(wall_3);
+
      AddEntity(*pcArena);
      m_pcArena = pcArena;
 }
@@ -344,6 +333,9 @@ void ToffiChLoopFunction::RemoveArena() {
     std::ostringstream id;
     id << "arena";
     RemoveEntity(id.str().c_str());
+    for (CWallEntity* wall : m_pcWalls) {
+        delete wall;
+    }
 }
 
 /****************************************/

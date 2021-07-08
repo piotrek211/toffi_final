@@ -19,7 +19,7 @@
 
 
 
-EXE=/home/piotrek/toffi/AutoMoDe-tuttifrutti/bin/automode_main
+EXE=/home/piotrek/toffi/AutoMoDe-toffi/bin/automode_main
 
 CONFIG_ID="$1"
 INSTANCE_ID="$2"

@@ -45,6 +45,11 @@ class CoreLoopFunctions: public CLoopFunctions {
     UInt32 m_unNumberRobots;
 
     /*
+     * The number of smart objects to be placed for the experiment.
+     */
+    UInt32 m_unNumberSmartObjects;
+
+    /*
      * The radius of the circle in which the robots will be distributed.
      */
     Real m_fDistributionRadiusEpuck;

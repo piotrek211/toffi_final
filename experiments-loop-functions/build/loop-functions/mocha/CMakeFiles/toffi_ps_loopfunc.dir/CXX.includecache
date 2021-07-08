@@ -6,8 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/piotrek/toffi/experiments-loop-functions/build/loop-functions/mocha/toffi_ps_loopfunc_autogen/mocs_compilation.cpp
-
 /home/piotrek/toffi/experiments-loop-functions/loop-functions/mocha/ToffiPsLoopFunc.cpp
 ToffiPsLoopFunc.h
 /home/piotrek/toffi/experiments-loop-functions/loop-functions/mocha/ToffiPsLoopFunc.h

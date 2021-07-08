@@ -33,7 +33,6 @@ class ToffiPuLoopFunction: public CoreLoopFunctions {
     virtual void PostStep();
     virtual void Reset();
     virtual void Init(TConfigurationNode& t_tree);
-    virtual bool IsExperimentFinished();
 
     Real GetObjectiveFunction();
 
@@ -46,9 +45,6 @@ class ToffiPuLoopFunction: public CoreLoopFunctions {
     void UpdateObject();
     void SetWallColor();
 
-    void ScoreControl();
-    Real GetStopScore();  
-    Real GetMoveScore();
     Real GetAggregationScore();
     bool IsObjectInAgg(CVector2 tObjectPosition, CColor tObjectColor);
 
@@ -98,6 +94,11 @@ class ToffiPuLoopFunction: public CoreLoopFunctions {
      * The arena used in the experiment.
      */
     CArenaEntity* m_pcArena;
+
+    /*
+     * Additional walls of the arena.
+    */
+     std::vector<CWallEntity*> m_pcWalls;
 
     /*
      * Transition time in sequence experiments
