@@ -333,8 +333,8 @@ void ToffiChLoopFunction::RemoveArena() {
     std::ostringstream id;
     id << "arena";
     RemoveEntity(id.str().c_str());
-    for (CWallEntity* wall : m_pcWalls) {
-        delete wall;
+    for (int i=0; i<m_pcWalls.size(); i++) {
+        delete m_pcWalls.at(i);
     }
 }
 

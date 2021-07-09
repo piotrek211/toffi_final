@@ -4,7 +4,7 @@
   <!-- * Framework * -->
   <!-- ************* -->
   <framework>
-    <experiment length="1020"
+    <experiment length="120"
                 ticks_per_second="10" random_seed="100"/>
   </framework>
 
@@ -19,7 +19,7 @@
                number_edges="4"
                number_boxes_per_edge="7"
                length_boxes="0.229" 
-               maximization="false"/>
+               maximization="true"/>
   </loop_functions>
 
   <!-- *************** -->

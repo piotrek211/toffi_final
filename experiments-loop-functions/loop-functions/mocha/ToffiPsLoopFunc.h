@@ -30,6 +30,7 @@ class ToffiPsLoopFunction: public CoreLoopFunctions {
 
     virtual argos::CColor GetFloorColor(const argos::CVector2& c_position_on_plane);
     virtual void PostExperiment();
+    virtual void PostStep();
     virtual void Reset();
     virtual void Init(TConfigurationNode& t_tree);
 
@@ -38,12 +39,17 @@ class ToffiPsLoopFunction: public CoreLoopFunctions {
     CVector3 GetRandomPosition(std::string m_sType);
     UInt32 GetRandomTime(UInt32 unMin, UInt32 unMax);
 
+    void ArenaControl();
+
     void InitRobotStates();
     void UpdateRobotPositions();
     void InitObjectStates();
     void UpdateObject();
 
-    UInt32 GetRobotsInZone();
+
+
+    void ScoreControl();
+    UInt32 GetPassageScore();
 
   private:
 
@@ -107,6 +113,7 @@ class ToffiPsLoopFunction: public CoreLoopFunctions {
      */
     bool m_bMaximization;
 
+    UInt32 m_unClock;
     Real m_fObjectiveFunction;
 
     struct RobotStateStruct {

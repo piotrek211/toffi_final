@@ -1,0 +1,14 @@
+/home/piotrek/toffi/AutoMoDe-toffi/build/CMakeFiles/edit_cache.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/CMakeFiles/package_source.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/CMakeFiles/rebuild_cache.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/CMakeFiles/package.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/edit_cache.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/rebuild_cache.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/package.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/visualize_fsm.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode_main.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/package_source.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/visualize_fsm_autogen.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode_main_autogen.dir
+/home/piotrek/toffi/AutoMoDe-toffi/build/src/CMakeFiles/automode_autogen.dir

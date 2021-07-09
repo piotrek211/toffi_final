@@ -68,10 +68,6 @@ void ToffiPsLoopFunction::Init(TConfigurationNode& t_tree) {
 
     InitObjectStates();
     m_pcArena->SetArenaColor(CColor::BLACK);
-    m_pcArena->SetWallColor(5, CColor::RED);
-    m_pcArena->SetWallColor(7, CColor::RED);
-    m_pcArena->SetWallColor(4, CColor::RED);
-
 
 }
 
@@ -90,11 +86,23 @@ void ToffiPsLoopFunction::Reset() {
     InitObjectStates();
 }
 
+
+/****************************************/
+/****************************************/
+
+void ToffiPsLoopFunction::PostStep() {
+
+    m_unClock = GetSpace().GetSimulationClock();
+
+    ScoreControl();
+    ArenaControl();
+}
+
 /****************************************/
 /****************************************/
 
 void ToffiPsLoopFunction::PostExperiment() {
-    m_fObjectiveFunction = GetRobotsInZone();
+    //m_fObjectiveFunction = GetRobotsInZone();
     if (m_bMaximization == true){
         LOG << -m_fObjectiveFunction << std::endl;
     }
@@ -108,13 +116,13 @@ void ToffiPsLoopFunction::PostExperiment() {
 
 
 
-UInt32 ToffiPsLoopFunction::GetRobotsInZone() {
+UInt32 ToffiPsLoopFunction::GetPassageScore() {
     UpdateRobotPositions();
     UInt32 unScore = 0;
     TRobotStateMap::iterator it;
 
     for (it = m_tRobotStates.begin(); it != m_tRobotStates.end(); ++it) {
-        if (it->second.cPosition.GetX() > 0.5) {
+        if (it->second.cPosition.GetX() < 0.5) {  //0.62
             unScore++;
         }
     }
@@ -134,7 +142,26 @@ Real ToffiPsLoopFunction::GetObjectiveFunction() {
 }
 
 
+/****************************************/
+/****************************************/
 
+void ToffiPsLoopFunction::ArenaControl() {
+
+    if (m_unClock == 1) {
+        m_pcArena->SetWallColor(5, CColor::RED);
+        m_pcArena->SetWallColor(7, CColor::RED);
+        m_pcArena->SetWallColor(4, CColor::RED);
+    }
+
+    return;
+}
+
+/****************************************/
+/****************************************/
+
+void ToffiPsLoopFunction::ScoreControl(){
+    m_fObjectiveFunction += GetPassageScore();
+}
 /****************************************/
 /****************************************/
 
@@ -333,9 +360,11 @@ void ToffiPsLoopFunction::RemoveArena() {
     id << "arena";
     RemoveEntity(id.str().c_str());
 
-    for (CWallEntity* wall : m_pcWalls) {
-        delete wall;
+
+    for (int i=0; i<m_pcWalls.size(); i++) {
+        delete m_pcWalls.at(i);
     }
+
 }
 
 /****************************************/

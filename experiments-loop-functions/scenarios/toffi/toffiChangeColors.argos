@@ -19,7 +19,7 @@
                number_edges="4"
                number_boxes_per_edge="7"
                length_boxes="0.229" 
-               maximization="false"/>
+               maximization="true"/>
   </loop_functions>
 
   <!-- *************** -->

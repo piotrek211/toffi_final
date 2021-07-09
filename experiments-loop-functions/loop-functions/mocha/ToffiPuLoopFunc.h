@@ -110,6 +110,7 @@ class ToffiPuLoopFunction: public CoreLoopFunctions {
      */
     bool m_bMaximization;
 
+
     UInt32 m_cWallColor;
     CColor cFinalColor;
 
@@ -122,7 +123,6 @@ class ToffiPuLoopFunction: public CoreLoopFunctions {
     struct RobotStateStruct {
         CVector2 cLastPosition;
         CVector2 cPosition;
-        UInt32 unItem;
     };
 
     struct ObjectStateStruct {
