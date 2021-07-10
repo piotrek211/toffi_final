@@ -114,7 +114,7 @@ void ToffiPuLoopFunction::Reset() {
 
     m_tRobotStates.clear();
     m_tObjectStates.clear();
-    
+
     InitRobotStates();
     InitObjectStates();
 }
@@ -163,7 +163,7 @@ Real ToffiPuLoopFunction::GetAggregationScore() {
     TObjectStateMap::iterator it;
     for (it = m_tObjectStates.begin(); it != m_tObjectStates.end(); ++it) {
         bInAgg = IsObjectInAgg(it->second.cPosition, it->second.cColor);
-        if (bInAgg){
+        if (bInAgg){ //normally is if(bInAgg) if maximization
             unScore+=1;
         }
     }
@@ -181,7 +181,6 @@ bool ToffiPuLoopFunction::IsObjectInAgg(CVector2 tObjectPosition, CColor tObject
 
 
 }
-
 
 /****************************************/
 /****************************************/
@@ -260,7 +259,7 @@ void ToffiPuLoopFunction::InitObjectStates() {
 
         m_tObjectStates[pcSmartObject].cLastPosition = cObjectPosition;
         m_tObjectStates[pcSmartObject].cPosition = cObjectPosition;
-        m_tObjectStates[pcSmartObject].cColor = CColor::WHITE;
+        m_tObjectStates[pcSmartObject].cColor = CColor::BLACK;
     }
 }
 
