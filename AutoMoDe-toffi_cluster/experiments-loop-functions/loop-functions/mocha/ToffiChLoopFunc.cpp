@@ -6,34 +6,31 @@
   * @license MIT License
   */
 
-#include "ToffiPuLoopFunc.h"
+#include "ToffiChLoopFunc.h"
+
 
 /****************************************/
 /****************************************/
 
-ToffiPuLoopFunction::ToffiPuLoopFunction() {
-    m_unClock = 0;
-    m_unStopTime = 0;
-    m_unStopEdge = 2;
-    m_unStopBox = 2;
+ToffiChLoopFunction::ToffiChLoopFunction() {
     m_fObjectiveFunction = 0;
 }
 
 /****************************************/
 /****************************************/
 
-ToffiPuLoopFunction::ToffiPuLoopFunction(const ToffiPuLoopFunction& orig) {
+ToffiChLoopFunction::ToffiChLoopFunction(const ToffiChLoopFunction& orig) {
 }
 
 /****************************************/
 /****************************************/
 
-ToffiPuLoopFunction::~ToffiPuLoopFunction() {}
+ToffiChLoopFunction::~ToffiChLoopFunction() {}
 
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::Destroy() {
+void ToffiChLoopFunction::Destroy() {
     m_tRobotStates.clear();
     RemoveArena();
 }
@@ -41,9 +38,8 @@ void ToffiPuLoopFunction::Destroy() {
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::Init(TConfigurationNode& t_tree) {
-
-    TConfigurationNode cParametersNode;
+void ToffiChLoopFunction::Init(TConfigurationNode& t_tree) {
+   TConfigurationNode cParametersNode;
 
 
     try {
@@ -54,16 +50,14 @@ void ToffiPuLoopFunction::Init(TConfigurationNode& t_tree) {
       GetNodeAttributeOrDefault(cParametersNode, "length_boxes", m_fLengthBoxes, (Real) 0.25);
       GetNodeAttributeOrDefault(cParametersNode, "maximization", m_bMaximization, (bool) false);
       GetNodeAttributeOrDefault(cParametersNode, "wall_color", m_cWallColor, (UInt32) 0);
-      GetNodeAttributeOrDefault(cParametersNode, "dist_radius_epuck", m_fDistributionRadiusEpuck, (Real) 0.3);
-      GetNodeAttributeOrDefault(cParametersNode, "dist_radius_smart_object", m_fDistributionRadiusSmartObject, (Real) 0.4);
+      GetNodeAttributeOrDefault(cParametersNode, "dist_radius_epuck", m_fDistributionRadiusEpuck, (Real) 0.65);
+      GetNodeAttributeOrDefault(cParametersNode, "dist_radius_smart_object", m_fDistributionRadiusSmartObject, (Real) 0.55);
     } catch(std::exception e) {
     }
 
 
     if (m_bBuildArena == true) {
         m_fArenaRadius = GetArenaRadious();
-        m_fDistributionRadiusEpuck = m_fArenaRadius - m_fDistributionRadiusEpuck;
-        m_fDistributionRadiusSmartObject = m_fArenaRadius - m_fDistributionRadiusSmartObject;
         PositionArena();
     }
 
@@ -79,41 +73,10 @@ void ToffiPuLoopFunction::Init(TConfigurationNode& t_tree) {
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::SetWallColor() {
-    CColor wall_color;
-
-    switch (m_cWallColor) {
-    case 1:
-        wall_color = CColor::MAGENTA;
-        cFinalColor = CColor::RED;
-        break;
-    case 2:
-        wall_color = CColor::CYAN;
-        cFinalColor = CColor::BLUE;
-        break;
-    case 3:
-        wall_color = CColor::YELLOW;
-        cFinalColor = CColor::GREEN;
-        break;
-    default:
-        wall_color = CColor::BLACK;
-        break;
-    }
-    m_pcArena->SetArenaColor(wall_color);
-
-}
-
-/****************************************/
-/****************************************/
-
-void ToffiPuLoopFunction::Reset() {
+void ToffiChLoopFunction::Reset() {
     CoreLoopFunctions::Reset();
 
     m_pcArena->SetArenaColor(CColor::BLACK);
-    m_unClock = 0;
-    m_unStopEdge = 2;
-    m_unStopBox = 2;
-    m_unStopTime = 0;
     m_fObjectiveFunction = 0;
 
     m_tRobotStates.clear();
@@ -122,18 +85,12 @@ void ToffiPuLoopFunction::Reset() {
     InitObjectStates();
 }
 
-/****************************************/
-/****************************************/
-
-void ToffiPuLoopFunction::PostStep() {
-    m_unClock = GetSpace().GetSimulationClock();
-}
 
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::PostExperiment() {
-    m_fObjectiveFunction = GetAggregationScore();
+void ToffiChLoopFunction::PostExperiment() {
+    m_fObjectiveFunction = GetScore();
     if (m_bMaximization == true){
         LOG << -m_fObjectiveFunction << std::endl;
     }
@@ -142,10 +99,11 @@ void ToffiPuLoopFunction::PostExperiment() {
     }
 }
 
+
 /****************************************/
 /****************************************/
 
-Real ToffiPuLoopFunction::GetObjectiveFunction() {
+Real ToffiChLoopFunction::GetObjectiveFunction() {
     if (m_bMaximization == true){
         return -m_fObjectiveFunction;
     }
@@ -158,15 +116,14 @@ Real ToffiPuLoopFunction::GetObjectiveFunction() {
 /****************************************/
 
 
-Real ToffiPuLoopFunction::GetAggregationScore() {
-    UpdateRobotPositions();
+Real ToffiChLoopFunction::GetScore() {
     UpdateObject();
-    bool bInAgg;
+    bool m_bFinalColor;
     Real unScore = 0;
     TObjectStateMap::iterator it;
     for (it = m_tObjectStates.begin(); it != m_tObjectStates.end(); ++it) {
-        bInAgg = IsObjectInAgg(it->second.cPosition, it->second.cColor);
-        if (bInAgg){
+        m_bFinalColor = IsObjectWithColor(it->second.cPosition, it->second.cColor);
+        if (m_bFinalColor){
             unScore+=1;
         }
     }
@@ -175,33 +132,25 @@ Real ToffiPuLoopFunction::GetAggregationScore() {
 }
 
 
-bool ToffiPuLoopFunction::IsObjectInAgg(CVector2 tObjectPosition, CColor tObjectColor) {
-    if (tObjectColor == CColor::BLACK){
+bool ToffiChLoopFunction::IsObjectWithColor(CVector2 tObjectPosition, CColor tObjectColor) {
+    if (tObjectColor == CColor::BLUE && tObjectColor != CColor::BLACK){
         return true;
     }
-
     return false;
-
-
 }
 
 
 /****************************************/
 /****************************************/
 
-argos::CColor ToffiPuLoopFunction::GetFloorColor(const argos::CVector2& c_position_on_plane) {
-    Real border = 0.62;
-    if(c_position_on_plane.GetX() < -border|| c_position_on_plane.GetX() > border ||
-       c_position_on_plane.GetY() < -border || c_position_on_plane.GetY() > border){
-        return CColor::WHITE;
-    }
+argos::CColor ToffiChLoopFunction::GetFloorColor(const argos::CVector2& c_position_on_plane) {
     return CColor::GRAY50;
 }
 
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::UpdateRobotPositions() {
+void ToffiChLoopFunction::UpdateRobotPositions() {
     CSpace::TMapPerType& tEpuckMap = GetSpace().GetEntitiesByType("epuck");
     CVector2 cEpuckPosition(0,0);
     for (CSpace::TMapPerType::iterator it = tEpuckMap.begin(); it != tEpuckMap.end(); ++it) {
@@ -217,7 +166,7 @@ void ToffiPuLoopFunction::UpdateRobotPositions() {
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::UpdateObject() {
+void ToffiChLoopFunction::UpdateObject() {
     CSpace::TMapPerType& tObjectMap = GetSpace().GetEntitiesByType("smart_object");
     CVector2 cObjectPosition(0,0);
     for (CSpace::TMapPerType::iterator it = tObjectMap.begin(); it != tObjectMap.end(); ++it) {
@@ -234,7 +183,7 @@ void ToffiPuLoopFunction::UpdateObject() {
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::InitRobotStates() {
+void ToffiChLoopFunction::InitRobotStates() {
 
     CSpace::TMapPerType& tEpuckMap = GetSpace().GetEntitiesByType("epuck");
     CVector2 cEpuckPosition(0,0);
@@ -245,6 +194,7 @@ void ToffiPuLoopFunction::InitRobotStates() {
 
         m_tRobotStates[pcEpuck].cLastPosition = cEpuckPosition;
         m_tRobotStates[pcEpuck].cPosition = cEpuckPosition;
+        m_tRobotStates[pcEpuck].unItem = 0;
     }
 }
 
@@ -253,14 +203,15 @@ void ToffiPuLoopFunction::InitRobotStates() {
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::InitObjectStates() {
+void ToffiChLoopFunction::InitObjectStates() {
+
     CSpace::TMapPerType& tObjectMap = GetSpace().GetEntitiesByType("smart_object");
     CVector2 cObjectPosition(0,0);
     for (CSpace::TMapPerType::iterator it = tObjectMap.begin(); it != tObjectMap.end(); ++it) {
         CSmartObjectEntity* pcSmartObject = any_cast<CSmartObjectEntity*>(it->second);
         cObjectPosition.Set(pcSmartObject->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),
                            pcSmartObject->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());
-
+    //m_pcAccelerometerSensor =  GetSensor<CCI_SmartObjectAccelerometerSensor>("smart_object_accelerometer");
         m_tObjectStates[pcSmartObject].cLastPosition = cObjectPosition;
         m_tObjectStates[pcSmartObject].cPosition = cObjectPosition;
         m_tObjectStates[pcSmartObject].cColor = CColor::WHITE;
@@ -270,30 +221,30 @@ void ToffiPuLoopFunction::InitObjectStates() {
 /****************************************/
 /****************************************/
 
-CVector3 ToffiPuLoopFunction::GetRandomPosition(std::string m_sType) {
+CVector3 ToffiChLoopFunction::GetRandomPosition(std::string m_sType) {
   m_fDistributionRadius = (m_sType == "epuck") ? m_fDistributionRadiusEpuck : m_fDistributionRadiusSmartObject;
   Real temp;
   Real a = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
   Real b = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
-  Real c = m_pcRng->Uniform(CRange<Real>(-1.0f, 1.0f));
-  Real d = m_pcRng->Uniform(CRange<Real>(-1.0f, 1.0f));
+  Real c = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
+  Real d = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
   // If b < a, swap them
   if (b < a) {
     temp = a;
     a = b;
     b = temp;
   }
-  //m_fDistributionRadius = m_fRadius;
-  Real fPosX = (c * m_fDistributionRadius / 2) + m_fDistributionRadius * cos(2 * CRadians::PI.GetValue() * (a/b));
-  Real fPosY = (d * m_fDistributionRadius / 2) + m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));
+  Real fPosX = c*m_fDistributionRadius * cos(2 * CRadians::PI.GetValue() * (a/b));
+  Real fPosY = d*m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));
 
+ 
   return CVector3(fPosX, fPosY, 0);
 }
 
 /****************************************/
 /****************************************/
 
-UInt32 ToffiPuLoopFunction::GetRandomTime(UInt32 unMin, UInt32 unMax) {
+UInt32 ToffiChLoopFunction::GetRandomTime(UInt32 unMin, UInt32 unMax) {
   UInt32 unStopAt = m_pcRng->Uniform(CRange<UInt32>(unMin, unMax));
   return unStopAt;
 
@@ -302,7 +253,7 @@ UInt32 ToffiPuLoopFunction::GetRandomTime(UInt32 unMin, UInt32 unMax) {
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::PositionArena() {
+void ToffiChLoopFunction::PositionArena() {
   CArenaEntity* pcArena;
   /*
     pcArena = new CArenaEntity("arena",
@@ -315,7 +266,7 @@ void ToffiPuLoopFunction::PositionArena() {
                                0.017f,
                                1.0f);   */ // arena with 12 leds per block
 
-  pcArena = new CArenaEntity("arena",
+   pcArena = new CArenaEntity("arena",
                              CVector3(0,0,0),
                              CQuaternion().FromEulerAngles(CRadians::ZERO,CRadians::ZERO,CRadians::ZERO), // TODO
                              CVector3(0.01,m_fLengthBoxes,0.1),
@@ -325,8 +276,7 @@ void ToffiPuLoopFunction::PositionArena() {
                              0.125f,
                              1.0f);
 
-
- CWallEntity* wall_0 = new CWallEntity(pcArena, "wall_0",
+   CWallEntity* wall_0 = new CWallEntity(pcArena, "wall_0",
                                      CVector3(0.7134,0.7134,0),
                              CQuaternion().FromEulerAngles(-3*CRadians::PI_OVER_FOUR,CRadians::ZERO,CRadians::ZERO), // TODO
                              CVector3(0.01,0.25,0.1),
@@ -372,20 +322,17 @@ void ToffiPuLoopFunction::PositionArena() {
      m_pcWalls.push_back(wall_2);
      m_pcWalls.push_back(wall_3);
 
-
-
-  AddEntity(*pcArena);
-  m_pcArena = pcArena;
+     AddEntity(*pcArena);
+     m_pcArena = pcArena;
 }
 
 /****************************************/
 /****************************************/
 
-void ToffiPuLoopFunction::RemoveArena() {
+void ToffiChLoopFunction::RemoveArena() {
     std::ostringstream id;
     id << "arena";
     RemoveEntity(id.str().c_str());
-
     for (int i=0; i<m_pcWalls.size(); i++) {
         delete m_pcWalls.at(i);
     }
@@ -394,12 +341,13 @@ void ToffiPuLoopFunction::RemoveArena() {
 /****************************************/
 /****************************************/
 
-Real ToffiPuLoopFunction::GetArenaRadious() {
+Real ToffiChLoopFunction::GetArenaRadious() {
 
     Real fRadious;
     fRadious =  (m_fLengthBoxes*m_unNumberBoxes) / (2 * Tan(CRadians::PI / m_unNumberEdges));
-    //fRadious = fRadious - 0.15; // Avoids to place robots close the walls.
+    //fRadious = fRadious - 0.10; // Avoids to place robots close the walls.
     //fRadious = fRadious - 0.65; // Reduced cluster at the begining
+    //std::cout << "ARENA RADIUS: " << fRadious << std::endl;
 
     return fRadious;
 }
@@ -407,7 +355,7 @@ Real ToffiPuLoopFunction::GetArenaRadious() {
 /****************************************/
 /****************************************/
 
-bool ToffiPuLoopFunction::IsEven(UInt32 unNumber) {
+bool ToffiChLoopFunction::IsEven(UInt32 unNumber) {
     bool even;
     if((unNumber%2)==0)
        even = true;
@@ -416,8 +364,35 @@ bool ToffiPuLoopFunction::IsEven(UInt32 unNumber) {
 
     return even;
 }
+/****************************************/
+/****************************************/
+
+void ToffiChLoopFunction::SetWallColor() {
+    CColor wall_color;
+
+    switch (m_cWallColor) {
+    case 1:
+        wall_color = CColor::MAGENTA;
+        cFinalColor = CColor::RED;
+        break;
+    case 2:
+        wall_color = CColor::CYAN;
+        cFinalColor = CColor::BLUE;
+        break;
+    case 3:
+        wall_color = CColor::YELLOW;
+        cFinalColor = CColor::GREEN;
+        break;
+    default:
+        wall_color = CColor::BLACK;
+        break;
+    }
+    m_pcArena->SetArenaColor(wall_color);
+
+}
+
 
 /****************************************/
 /****************************************/
 
-REGISTER_LOOP_FUNCTIONS(ToffiPuLoopFunction, "toffi_pu_loop_function");
+REGISTER_LOOP_FUNCTIONS(ToffiChLoopFunction, "toffi_ch_loop_function");
