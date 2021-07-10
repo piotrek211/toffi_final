@@ -34,7 +34,7 @@ void ToffiPsLoopFunction::Destroy() {
     m_tRobotStates.clear();
     m_tObjectStates.clear();
     RemoveArena();
-    RemoveRobots();
+    //RemoveRobots();
 }
 
 /****************************************/

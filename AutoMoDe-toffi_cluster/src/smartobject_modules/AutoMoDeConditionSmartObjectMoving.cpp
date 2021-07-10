@@ -11,7 +11,6 @@
 
 	AutoMoDeConditionSmartObjectMoving::AutoMoDeConditionSmartObjectMoving() {
 		m_strLabel = "Moving";
-    timer = 20;
 	}
 
   /****************************************/
@@ -37,6 +36,7 @@
 
   void AutoMoDeConditionSmartObjectMoving::Init() {
     m_fMovingThreshold = 0.006;
+    timer = 20;
 
   }
 
@@ -86,7 +86,6 @@
             break;
       }
     } 
-
      return isMoved;
    
   }
