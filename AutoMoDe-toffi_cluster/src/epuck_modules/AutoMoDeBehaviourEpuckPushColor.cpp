@@ -66,7 +66,7 @@ namespace argos {
             sProxVectorSum = CVector2(m_pcRobotDAO->GetProximityReading().Value, m_pcRobotDAO->GetProximityReading().Angle);
 			m_eGoDirection = AVOID;
         } else {
-			Real offset = 0.1;
+			Real offset = 0.15;
 			sResultVector = CVector2(m_unAttractionParameter, sColVectorSum.Angle().SignedNormalize());
 			if (sColVectorSum.Angle().SignedNormalize() < (CRadians(0.0f) - CRadians(offset))) {
 				m_eGoDirection = RIGHT;

@@ -12,8 +12,6 @@ namespace argos {
 
 	AutoMoDeBehaviourSmartObjectLightColor::AutoMoDeBehaviourSmartObjectLightColor() {
 		m_strLabel = "LightColor";
-		next = false;
-		index = 0;
 	}
 
 	/****************************************/

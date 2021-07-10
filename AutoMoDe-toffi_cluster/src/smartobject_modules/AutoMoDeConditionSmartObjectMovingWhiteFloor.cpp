@@ -1,39 +1,40 @@
 /**
-  * @file <src/modules/AutoMoDeConditionInvertedWhiteFloor.cpp>
+  * @file <src/modules/AutoMoDeConditionMovingWhiteFloor.cpp>
   */
 
- #include "AutoMoDeConditionSmartObjectGrayFloor.h"
+ #include "AutoMoDeConditionSmartObjectMovingWhiteFloor.h"
 
  namespace argos {
 
 	/****************************************/
 	/****************************************/
 
-	AutoMoDeConditionSmartObjectGrayFloor::AutoMoDeConditionSmartObjectGrayFloor() {
-		m_strLabel = "GrayFloor";
+	AutoMoDeConditionSmartObjectMovingWhiteFloor::AutoMoDeConditionSmartObjectMovingWhiteFloor() {
+		m_strLabel = "MovingWhiteFloor";
 	}
 
 	/****************************************/
 	/****************************************/
 
-	AutoMoDeConditionSmartObjectGrayFloor::~AutoMoDeConditionSmartObjectGrayFloor() {}
+	AutoMoDeConditionSmartObjectMovingWhiteFloor::~AutoMoDeConditionSmartObjectMovingWhiteFloor() {}
 
 	/****************************************/
 	/****************************************/
 
-	bool AutoMoDeConditionSmartObjectGrayFloor::Verify() {
-		if (m_fGroundThresholdRange.WithinMinBoundExcludedMaxBoundExcluded(m_pcRobotDAO->GetGroundReading())) {
-			return EvaluateBernoulliProbability(m_fProbability);
-		}
-		else {
-			return false;
-		}
+	bool AutoMoDeConditionSmartObjectMovingWhiteFloor::Verify() {
+    Real vel = (m_pcRobotDAO->GetAccelerometerReading()).vel.getVelocity();
+    if (m_pcRobotDAO->GetGroundReading() >= m_fGroundThreshold && vel >= m_fMovingThreshold) {
+      return EvaluateBernoulliProbability(m_fProbability);
+    }
+    else {
+      return false;
+    }
 	}
 
 	/****************************************/
 	/****************************************/
 
-	AutoMoDeConditionSmartObjectGrayFloor::AutoMoDeConditionSmartObjectGrayFloor(AutoMoDeConditionSmartObjectGrayFloor* pc_condition) {
+	AutoMoDeConditionSmartObjectMovingWhiteFloor::AutoMoDeConditionSmartObjectMovingWhiteFloor(AutoMoDeConditionSmartObjectMovingWhiteFloor* pc_condition) {
 		m_strLabel = pc_condition->GetLabel();
 		m_unIndex = pc_condition->GetIndex();
 		m_unIdentifier = pc_condition->GetIndex();
@@ -46,15 +47,16 @@
 	/****************************************/
 	/****************************************/
 
-	AutoMoDeConditionSmartObjectGrayFloor* AutoMoDeConditionSmartObjectGrayFloor::Clone() {
-		return new AutoMoDeConditionSmartObjectGrayFloor(this);
+	AutoMoDeConditionSmartObjectMovingWhiteFloor* AutoMoDeConditionSmartObjectMovingWhiteFloor::Clone() {
+		return new AutoMoDeConditionSmartObjectMovingWhiteFloor(this);
 	}
 
 	/****************************************/
 	/****************************************/
 
-	void AutoMoDeConditionSmartObjectGrayFloor::Init() {
-		m_fGroundThresholdRange.Set(0.1, 0.95);
+	void AutoMoDeConditionSmartObjectMovingWhiteFloor::Init() {
+		m_fGroundThreshold = 0.95;
+        m_fMovingThreshold = 0.1;
 		std::map<std::string, Real>::iterator it = m_mapParameters.find("p");
 		if (it != m_mapParameters.end()) {
 			m_fProbability = it->second;
@@ -67,6 +69,6 @@
 	/****************************************/
 	/****************************************/
 
-	void AutoMoDeConditionSmartObjectGrayFloor::Reset() {}
+	void AutoMoDeConditionSmartObjectMovingWhiteFloor::Reset() {}
 
  }

@@ -11,7 +11,6 @@
 
 	AutoMoDeConditionSmartObjectMoving::AutoMoDeConditionSmartObjectMoving() {
 		m_strLabel = "Moving";
-    timer = 20;
 	}
 
   /****************************************/
@@ -66,6 +65,8 @@
     Real mean = sum/4.0f;
 
     bool isMoved = false;
+    //std::cout << "STATE: " << m_eMovingState << std::endl;
+    //std::cout << "IsMoved: " << isMoved << std::endl;
     switch (m_eMovingState) {
 			case 0: {
             if (mean >= m_fMovingThreshold) {
@@ -75,6 +76,7 @@
             break;
       }
       case 1: {
+            //std::cout << timer << std::endl;
             timer--;
             if (timer <= 0){
               timer = 20;
@@ -90,6 +92,34 @@
 
      return isMoved;
    
+   /* Real preVelocity = m_pcRobotDAO->GetVelocity();
+    Real currVelocity = (m_pcRobotDAO->GetAccelerometerReading()).vel.getVelocity();
+    bool isMoved = false;
+    if (preVelocity <= m_fMovingThreshold) {
+      m_eMovingState = TOUCHING;
+    }
+    else{
+      m_eMovingState = PUSHING;
+    }
+    switch (m_eMovingState) {
+			case TOUCHING: {
+            timer = 20;
+            if (currVelocity >= m_fMovingThreshold) {
+                isMoved = true;
+            }
+            break;
+      }
+      case PUSHING: {
+            timer--;
+            if (timer <= 0){
+              timer = 20;
+              isMoved = true;
+            }
+            break;
+      }
+    }    
+
+     return isMoved;*/
   }
  
   /****************************************/

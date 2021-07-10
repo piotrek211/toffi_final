@@ -25,8 +25,8 @@ namespace argos {
 
         private:
             CColor m_cColorEmiterParameter;
-			bool next;
-			UInt16 index;
+			bool next = false;
+			UInt16 index = 0;
 	};
 }
 

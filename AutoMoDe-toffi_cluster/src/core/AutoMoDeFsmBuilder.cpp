@@ -45,23 +45,29 @@ namespace argos {
 		try {
 			it = std::find(vec_fsm_config.begin(), vec_fsm_config.end(), "--type");
 			m_unType = atoi((*(it+1)).c_str());
+			std::cout << "TYPE: " << m_unType << std::endl;
 			it = std::find(vec_fsm_config.begin(), vec_fsm_config.end(), "--nstates");
 			m_unNumberStates = atoi((*(it+1)).c_str());
 
 			std::vector<std::string>::iterator first_state;
 			std::vector<std::string>::iterator second_state;
 			for (UInt32 i = 0; i < m_unNumberStates; i++) {
+				std::cout << "state" << std::endl;
 				std::ostringstream oss;
 				oss << "--s" << i;
 				first_state = std::find(vec_fsm_config.begin(), vec_fsm_config.end(), oss.str());
+				std::cout << "first state: " << *first_state << std::endl;
 				if (i+1 < m_unNumberStates) {
 					std::ostringstream oss;
 					oss << "--s" << i+1;
 					second_state = std::find(vec_fsm_config.begin(), vec_fsm_config.end(), oss.str());
 				} else {
+					std::cout << "HERE SSS " << std::endl;
 					second_state = vec_fsm_config.end();
+					std::cout << "HERE AFTER " << std::endl;
 				}
 				std::vector<std::string> vecStateConfig(first_state, second_state);
+				//std::cout << "FIRST STATE: " << *first_state << " SECOND STATE: " << *second_state << std::endl;  
 				HandleState(cFiniteStateMachine, vecStateConfig);
 			}
 		}
@@ -282,8 +288,8 @@ namespace argos {
 							cNewCondition = new AutoMoDeConditionSmartObjectMoving();
 							break;
 						case 2:
-							cNewCondition = new AutoMoDeConditionSmartObjectGrayFloor();
-							break;	
+							cNewCondition = new AutoMoDeConditionSmartObjectNotMoving();
+							break;
 						case 3:
 							cNewCondition = new AutoMoDeConditionSmartObjectWhiteFloor();
 							break;
@@ -305,38 +311,20 @@ namespace argos {
 			case 0:
 				switch(param_type){	
 					case 0:
-						vecPossibleParameters.push_back("rwm");
-						vecPossibleParameters.push_back("att");
-						vecPossibleParameters.push_back("rep");
-						vecPossibleParameters.push_back("cle");
-						vecPossibleParameters.push_back("clr");
-						vecPossibleParameters.push_back("vel");
-						//vecPossibleParameters = {"rwm", "att", "rep", "cle", "clr", "vel"};
+						vecPossibleParameters = {"rwm", "att", "rep", "cle", "clr", "vel"};
 						break;
 					case 1:
-						vecPossibleParameters.push_back("p");
-						vecPossibleParameters.push_back("w");
-						vecPossibleParameters.push_back("l");
-						//vecPossibleParameters = {"p", "w", "l"};
+						vecPossibleParameters = {"p", "w", "l"};
 						break;
 				}
 				break;
 			case 1:
 				switch(param_type){	
 					case 0:
-						vecPossibleParameters.push_back("rwm");
-						vecPossibleParameters.push_back("att");
-						vecPossibleParameters.push_back("rep");
-						vecPossibleParameters.push_back("cle");
-						vecPossibleParameters.push_back("clr");
-						vecPossibleParameters.push_back("vel");
-						//vecPossibleParameters = {"rwm", "att", "rep", "cle", "clr", "vel"};
+						vecPossibleParameters = {"rwm", "att", "rep", "cle", "clr", "vel"};
 						break;
 					case 1:
-						vecPossibleParameters.push_back("p");
-						vecPossibleParameters.push_back("w");
-						vecPossibleParameters.push_back("l");
-						//vecPossibleParameters = {"p", "w", "l", "t"};
+						vecPossibleParameters = {"p", "w", "l", "t"};
 						break;
 				}
 				break;

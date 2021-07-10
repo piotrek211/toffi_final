@@ -42,8 +42,12 @@ set(AUTOMODE_HEADERS
     	smartobject_modules/AutoMoDeConditionSmartObject.h
     	smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.h
     	smartobject_modules/AutoMoDeConditionSmartObjectMoving.h
+    	smartobject_modules/AutoMoDeConditionSmartObjectNotMoving.h
     	smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.h
-    	smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.h
+    #	smartobject_modules/AutoMoDeConditionSmartObjectMovingWhiteFloor.h
+    #	smartobject_modules/AutoMoDeConditionSmartObjectMovingBlackFloor.h
+    #	smartobject_modules/AutoMoDeConditionSmartObjectMovingColor.h
+    	#smartobject_modules/AutoMoDeConditionSmartObjectTimer.h
     	
     	)
 
@@ -87,7 +91,7 @@ set(AUTOMODE_SOURCES
     	smartobject_modules/AutoMoDeConditionSmartObject.cpp
     	smartobject_modules/AutoMoDeConditionSmartObjectBlackFloor.cpp
     	smartobject_modules/AutoMoDeConditionSmartObjectMoving.cpp
-    	smartobject_modules/AutoMoDeConditionSmartObjectGrayFloor.cpp
+    	smartobject_modules/AutoMoDeConditionSmartObjectNotMoving.cpp
     	smartobject_modules/AutoMoDeConditionSmartObjectWhiteFloor.cpp
     	)
 

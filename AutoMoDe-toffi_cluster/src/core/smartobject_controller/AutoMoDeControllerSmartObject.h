@@ -146,7 +146,7 @@ namespace argos{
 			*/
 			bool m_bPartialLighting;
 			
-			bool init;
+			bool init = false;
 	};
 }
 
