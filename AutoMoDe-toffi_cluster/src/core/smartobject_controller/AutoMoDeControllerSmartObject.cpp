@@ -23,6 +23,7 @@ namespace argos {
 		m_bPrintReadableFsm = false;
 		m_strHistoryFolder = "./";
 		m_bFiniteStateMachineGiven = false;
+		init = false;
 	}
 
 	/****************************************/
@@ -97,6 +98,7 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeControllerSmartObject::ControlStep() {
+		//Smart objects are moved by a loop function meaning we need to reset the accelerometer's values
 		if (!init) {
 			init = true;
 			if (m_pcAccelerometerSensor != NULL) {
@@ -104,7 +106,7 @@ namespace argos {
 			}
 		}
 		/*
-		 * 1. Update RobotDAO
+		 * 1. Update SmartObjectDAO
 		 */
 		if (m_pcAccelerometerSensor != NULL) {
 			const CCI_SmartObjectAccelerometerSensor::SReading& reading = m_pcAccelerometerSensor->GetReading();

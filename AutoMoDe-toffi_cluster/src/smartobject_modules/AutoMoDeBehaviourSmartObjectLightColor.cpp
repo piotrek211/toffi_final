@@ -12,6 +12,8 @@ namespace argos {
 
 	AutoMoDeBehaviourSmartObjectLightColor::AutoMoDeBehaviourSmartObjectLightColor() {
 		m_strLabel = "LightColor";
+		next = false;
+		index = 0;
 	}
 
 	/****************************************/
@@ -56,6 +58,7 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeBehaviourSmartObjectLightColor::Init() {
+		next = false;
         std::map<std::string, Real>::iterator it = m_mapParameters.find("cle");
         if (it != m_mapParameters.end()) {
 			if (it->second != 5 && it->second != 6) {

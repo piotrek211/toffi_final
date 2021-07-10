@@ -27,6 +27,7 @@ namespace argos {
       		SmartObjectDAO* m_pcRobotDAO;
 
 		public:
+			AutoMoDeBehaviourSmartObject();
 			~AutoMoDeBehaviourSmartObject();
 
 			/*
@@ -42,9 +43,9 @@ namespace argos {
 			CColor NextColor();
 			CColor CurrentColor();
 
-			CColor c_CurrentColor = CColor::BLACK;
-			UInt16 color_index = 0;
-			std::vector<CColor> color_cycle = {CColor::RED, CColor::GREEN, CColor::BLUE};
+			CColor c_CurrentColor;
+			UInt16 color_index;
+			std::vector<CColor> color_cycle;
 
 
       

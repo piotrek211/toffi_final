@@ -50,7 +50,7 @@ namespace argos {
 
 	void AutoMoDeBehaviourEpuckStop::ControlStep() {
 		m_pcRobotDAO->SetWheelsVelocity(0,0);
-        m_pcRobotDAO->SetLEDsColor(m_cColorEmiterParameter);
+       // m_pcRobotDAO->SetLEDsColor(m_cColorEmiterParameter);
 		m_bLocked = false;
 	}
 
@@ -58,13 +58,13 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeBehaviourEpuckStop::Init() {
-        std::map<std::string, Real>::iterator it = m_mapParameters.find("cle");
+      /*  std::map<std::string, Real>::iterator it = m_mapParameters.find("cle");
         if (it != m_mapParameters.end()) {
             m_cColorEmiterParameter = GetColorParameter(it->second, true);
         } else {
             LOGERR << "[FATAL] Missing parameter for the following behaviour:" << m_strLabel << std::endl;
             THROW_ARGOSEXCEPTION("Missing Parameter");
-        }
+        }*/
 	}
 
 	/****************************************/

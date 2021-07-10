@@ -43,12 +43,12 @@ int main(int n_argc, char** ppch_argv) {
 
 	bool bReadableFSM = false;
 	//std::map<int, std::vector<std::string>> vecConfigsFsm;
-	std::vector<std::vector<std::string>> vecConfigsFsm;
+	std::vector<std::vector<std::string> > vecConfigsFsm;
 	bool bFsmControllerFound = false;
 	UInt32 unSeed = 0;
 
 	std::vector<AutoMoDeFiniteStateMachine*> vecFsm;
-	std::map<int, std::vector<std::string>>  vecFsmMap;
+	std::map<int, std::vector<std::string> >  vecFsmMap;
 
 	try {
 		// Cutting off the FSM configuration from the command line
@@ -78,7 +78,6 @@ int main(int n_argc, char** ppch_argv) {
 					vecConfigsFsm.push_back(vecConfigFsm);
 					// Do not take the FSM configuration into account in the standard command line parsing.
 					//n_argc = n_argc - vecConfigFsm.size() - 2;
-					//std::cout << "n_argc" << n_argc << std::endl;
 				}
 			}
 			nCurrentArgument++;
@@ -88,17 +87,7 @@ int main(int n_argc, char** ppch_argv) {
 		}
 
 
-		std::map<int, std::vector<std::string>>::iterator it;
-
-		for(it = vecFsmMap.begin(); it != vecFsmMap.end(); it++){
-			std::cout << (*it).first << ": " << ((*it).second).size() << std::endl;
-			/*for(auto elem : (*it).second){
-				std::cout << elem << std::endl;
-			}*/
-		}
-
-	//	std::vector<std::string> vecConfigFsm = vecConfigsFsm.at(0);
-	//	std::vector<std::string> vecConfigFsmSmartObject = vecConfigsFsm.at(1);
+		std::map<int, std::vector<std::string> >::iterator it;
 
 
 		// Configure the command line options
@@ -136,26 +125,23 @@ int main(int n_argc, char** ppch_argv) {
 				}
 				// Setting random seed. Only works with modified version of ARGoS3.
 				cSimulator.SetRandomSeed(unSeed);
-
 				cSimulator.LoadExperiment();
+
 
 				// Duplicate the finite state machine and pass it to all robots.
 				CSpace::TMapPerType cEntities = cSimulator.GetSpace().GetEntitiesByType("controller");
-
 				for (CSpace::TMapPerType::iterator it = cEntities.begin(); it != cEntities.end(); ++it) {
 					CControllableEntity* pcEntity = any_cast<CControllableEntity*>(it->second);
-					std::map<int, AutoMoDeFiniteStateMachine*> pcPersonalFsms;
-					for (it0 = pcFiniteStateMachines.begin(); it0 != pcFiniteStateMachines.end(); it0++) {
-						AutoMoDeFiniteStateMachine* pcPersonalFsm = new AutoMoDeFiniteStateMachine((*it0).second);
-						vecFsm.push_back(pcPersonalFsm);
-						pcPersonalFsms.insert(std::make_pair((*it0).first, pcPersonalFsm));
-					}
 					try {
 						AutoMoDeController& cController = dynamic_cast<AutoMoDeController&> (pcEntity->GetController());
-						if(cController.GetId().compare("epuck") == 0){
-							cController.SetFiniteStateMachine(pcPersonalFsms.at(0));
-						}else if(cController.GetId().compare("smart_object") == 0){
-							cController.SetFiniteStateMachine(pcPersonalFsms.at(1));
+						if(cController.GetId().compare(0,5,"epuck") == 0){
+							AutoMoDeFiniteStateMachine* pcPersonalFsm = new AutoMoDeFiniteStateMachine(pcFiniteStateMachines[0]);
+							vecFsm.push_back(pcPersonalFsm);
+							cController.SetFiniteStateMachine(pcPersonalFsm);
+						}else if(cController.GetId().compare(0,12,"smart_object") == 0){
+							AutoMoDeFiniteStateMachine* pcPersonalFsm = new AutoMoDeFiniteStateMachine(pcFiniteStateMachines[1]);
+							vecFsm.push_back(pcPersonalFsm);
+							cController.SetFiniteStateMachine(pcPersonalFsm);
 						}
 						cController.SetHistoryFlag(bHistory);
 					} catch (std::exception& ex) {
@@ -167,6 +153,7 @@ int main(int n_argc, char** ppch_argv) {
 				cSimulator.Execute();
 				// Retrieval of the score of the swarm driven by the Finite State Machine
 				CoreLoopFunctions& cLoopFunctions = dynamic_cast<CoreLoopFunctions&> (cSimulator.GetLoopFunctions());
+				std::cout << "HERE" << std::endl;
 				Real fObjectiveFunction = cLoopFunctions.GetObjectiveFunction();
 				std::cout << "Score " << fObjectiveFunction << std::endl;
 
@@ -187,7 +174,6 @@ int main(int n_argc, char** ppch_argv) {
         // Should never get here
         break;
 		}
-
 		cSimulator.Destroy();
 
 	} catch(std::exception& ex) {
@@ -199,7 +185,6 @@ int main(int n_argc, char** ppch_argv) {
 #endif
     return 1;
   }
-
 	for (unsigned int i = 0; i < vecFsm.size(); ++i) {
 		delete vecFsm.at(i);
 	}

@@ -49,7 +49,6 @@ namespace argos {
 	/****************************************/
 
     void AutoMoDeBehaviourEpuckPushColor::ControlStep() {
-		//std::cout << "PUSH COLOR: " << m_cColorReceiverParameter << std::endl;
         CCI_EPuckOmnidirectionalCameraSensor::SReadings sReadings = m_pcRobotDAO->GetCameraInput();
         CCI_EPuckOmnidirectionalCameraSensor::TBlobList::iterator it;
         CVector2 sColVectorSum(0,CRadians::ZERO);
@@ -66,7 +65,7 @@ namespace argos {
             sProxVectorSum = CVector2(m_pcRobotDAO->GetProximityReading().Value, m_pcRobotDAO->GetProximityReading().Angle);
 			m_eGoDirection = AVOID;
         } else {
-			Real offset = 0.15;
+			Real offset = 0.1;
 			sResultVector = CVector2(m_unAttractionParameter, sColVectorSum.Angle().SignedNormalize());
 			if (sColVectorSum.Angle().SignedNormalize() < (CRadians(0.0f) - CRadians(offset))) {
 				m_eGoDirection = RIGHT;

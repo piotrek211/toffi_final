@@ -13,6 +13,18 @@
 
 namespace argos {
 
+   AutoMoDeBehaviourSmartObject::AutoMoDeBehaviourSmartObject() {
+        c_CurrentColor = CColor::BLACK;
+		color_index = 0;
+        color_cycle.push_back(CColor::RED);
+        color_cycle.push_back(CColor::GREEN);
+        color_cycle.push_back(CColor::BLUE);
+		//color_cycle = {CColor::RED, CColor::GREEN, CColor::BLUE};
+
+   }
+	/****************************************/
+	/****************************************/
+
 	AutoMoDeBehaviourSmartObject::~AutoMoDeBehaviourSmartObject() {}
 
 	/****************************************/
@@ -66,7 +78,6 @@ namespace argos {
     /****************************************/
 
     CColor AutoMoDeBehaviourSmartObject::RandomColor() {
-        return CColor::RED;
         try{
             CRandom::CRNG* m_pcRng = CRandom::CreateRNG("argos");
             UInt16 size = color_cycle.size();
@@ -83,7 +94,6 @@ namespace argos {
     /****************************************/
 
     CColor AutoMoDeBehaviourSmartObject::NextColor() {
-        std::cout << "TUTAJ " << std::endl;
         CColor current_color = CurrentColor();
         color_index = 0;
         for (color_index = 0; color_index < color_cycle.size(); color_index++) {

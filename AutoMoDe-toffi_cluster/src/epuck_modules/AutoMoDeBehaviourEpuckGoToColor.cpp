@@ -49,7 +49,6 @@ namespace argos {
 	/****************************************/
 
     void AutoMoDeBehaviourEpuckGoToColor::ControlStep() {
-      //  std::cout << "GO TO COLOR: " << m_cColorReceiverParameter << std::endl;
         CCI_EPuckOmnidirectionalCameraSensor::SReadings sReadings = m_pcRobotDAO->GetCameraInput();
         CCI_EPuckOmnidirectionalCameraSensor::TBlobList::iterator it;
         CVector2 sColVectorSum(0,CRadians::ZERO);
@@ -68,7 +67,7 @@ namespace argos {
         sResultVector = CVector2(m_unAttractionParameter, sColVectorSum.Angle().SignedNormalize()) - 6*sProxVectorSum;
 
 		m_pcRobotDAO->SetWheelsVelocity(ComputeWheelsVelocityFromVector(sResultVector));
-        m_pcRobotDAO->SetLEDsColor(m_cColorEmiterParameter);
+      //  m_pcRobotDAO->SetLEDsColor(m_cColorEmiterParameter);
 
 		m_bLocked = false;
 	}
@@ -85,13 +84,13 @@ namespace argos {
 			LOGERR << "[FATAL] Missing parameter for the following behaviour:" << m_strLabel << std::endl;
 			THROW_ARGOSEXCEPTION("Missing Parameter");
 		}
-        it = m_mapParameters.find("cle");
+       /* it = m_mapParameters.find("cle");
         if (it != m_mapParameters.end()) {
             m_cColorEmiterParameter = GetColorParameter(it->second, true);
         } else {
             LOGERR << "[FATAL] Missing parameter for the following behaviour:" << m_strLabel << std::endl;
             THROW_ARGOSEXCEPTION("Missing Parameter");
-        }
+        }*/
         it = m_mapParameters.find("clr");
         if (it != m_mapParameters.end()) {
             m_cColorReceiverParameter = GetColorParameter(it->second, false);
