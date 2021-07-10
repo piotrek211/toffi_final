@@ -32,7 +32,9 @@ ToffiPsLoopFunction::~ToffiPsLoopFunction() {}
 void ToffiPsLoopFunction::Destroy() {
 
     m_tRobotStates.clear();
+    m_tObjectStates.clear();
     RemoveArena();
+    RemoveRobots();
 }
 
 /****************************************/
@@ -342,12 +344,7 @@ void ToffiPsLoopFunction::PositionArena() {
      pcArena->AddWall(*wall_1);  
      pcArena->AddWall(*wall_2);  
      pcArena->AddWall(*wall_3);   
-
-     m_pcWalls.push_back(wall_0);
-     m_pcWalls.push_back(wall_1);
-     m_pcWalls.push_back(wall_2);
-     m_pcWalls.push_back(wall_3);                            
-
+                        
   AddEntity(*pcArena);
   m_pcArena = pcArena;
 }
@@ -359,12 +356,6 @@ void ToffiPsLoopFunction::RemoveArena() {
     std::ostringstream id;
     id << "arena";
     RemoveEntity(id.str().c_str());
-
-
-    for (int i=0; i<m_pcWalls.size(); i++) {
-        delete m_pcWalls.at(i);
-    }
-
 }
 
 /****************************************/

@@ -84,13 +84,13 @@ void CoreLoopFunctions::MoveRobots(std::string m_sType) {
 /****************************************/
 
 void CoreLoopFunctions::RemoveRobots() {
-  for(UInt32 i = 1; i < m_unNumberRobots + 1; ++i) {
+  for(UInt32 i = 0; i < m_unNumberRobots; ++i) {
     std::ostringstream id;
     id << "epuck" << i;
     RemoveEntity(id.str().c_str());
   }
 
-  for(UInt32 i = 1; i < m_unNumberSmartObjects + 1; ++i) {
+  for(UInt32 i = 0; i < m_unNumberSmartObjects; ++i) {
     std::ostringstream id;
     id << "smart_object" << i;
     RemoveEntity(id.str().c_str());

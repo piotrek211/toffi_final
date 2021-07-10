@@ -97,17 +97,17 @@
   
  
   
-    <smart_object id="smart_object1">
+    <smart_object id="smart_object0">
+    	 <body orientation="0,0,0" position="0,0.4,0" />
+       <controller config="toffi_smart_object"/>
+      </smart_object>
+      
+        <smart_object id="smart_object1">
     	 <body orientation="0,0,0" position="0,0.4,0" />
        <controller config="toffi_smart_object"/>
       </smart_object>
       
         <smart_object id="smart_object2">
-    	 <body orientation="0,0,0" position="0,0.4,0" />
-       <controller config="toffi_smart_object"/>
-      </smart_object>
-      
-        <smart_object id="smart_object3">
     	 <body orientation="0,0,0" position="0,0.4,0" />
        <controller config="toffi_smart_object"/>
       </smart_object>

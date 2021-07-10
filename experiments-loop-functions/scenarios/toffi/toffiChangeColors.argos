@@ -95,7 +95,12 @@
   </distribute>
   
    
-    <smart_object id="smart_object1">
+    <smart_object id="smart_object0">
+    	 <body orientation="0,0,0" position="0,0.4,0" />
+       <controller config="toffi_smart_object"/>
+      </smart_object>
+      
+        <smart_object id="smart_object1">
     	 <body orientation="0,0,0" position="0,0.4,0" />
        <controller config="toffi_smart_object"/>
       </smart_object>
@@ -105,110 +110,8 @@
        <controller config="toffi_smart_object"/>
       </smart_object>
       
-        <smart_object id="smart_object3">
-    	 <body orientation="0,0,0" position="0,0.4,0" />
-       <controller config="toffi_smart_object"/>
-      </smart_object>
       
-      
-      
-  <!--box id="sep" size="0.25,.012,0.15" movable="false">
-    <body position="0.7134,0.7134,0" orientation="135,0,0"/>
-  </box>  
-  
-  <box id="sep1" size="0.25,.012,0.15" movable="false">
-    <body position="-0.7134,0.7134,0" orientation="45,0,0"/>
-  </box>   
-  
-   <box id="sep2" size="0.25,.012,0.15" movable="false">
-    <body position="0.7134,-0.7134,0" orientation="45,0,0"/>
-  </box>   
-  
-   <box id="sep3" size="0.25,.012,0.15" movable="false">
-    <body position="-0.7134,-0.7134,0" orientation="135,0,0"/>
-  </box-->   
-
-   
-  <!--e-puck id="epuck_01_30">
-    <body orientation="0,0,0" position="0,-0.4,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_02_40">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_03_50">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_04_51">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_05_55">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_06_46">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_07_34">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_08_35">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_09_36">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_10_57">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_11_44">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_12_48">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_13_61">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_14_28">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_15_32">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_16_33">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_17_39">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_18_42">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_19_47">
-    <body orientation="0,0,0" position="0.4,-0.6,0" />
-    <controller config="tuttifrutti" />
-  </e-puck>
-  <e-puck id="epuck_20_53">
-    <body orientation="0,0,0" position="0,0,0" />
-    <controller config="tuttifrutti"/>
-  </e-puck-->
+     
 
   <!-- The epucks are distributed by the AutoMoDeLoopFunctions. -->
 

@@ -13,9 +13,6 @@
 
 ToffiPuLoopFunction::ToffiPuLoopFunction() {
     m_unClock = 0;
-    m_unStopTime = 0;
-    m_unStopEdge = 2;
-    m_unStopBox = 2;
     m_fObjectiveFunction = 0;
 }
 
@@ -35,7 +32,9 @@ ToffiPuLoopFunction::~ToffiPuLoopFunction() {}
 
 void ToffiPuLoopFunction::Destroy() {
     m_tRobotStates.clear();
+    m_tObjectStates.clear();
     RemoveArena();
+    RemoveRobots();
 }
 
 /****************************************/
@@ -111,13 +110,11 @@ void ToffiPuLoopFunction::Reset() {
 
     m_pcArena->SetArenaColor(CColor::BLACK);
     m_unClock = 0;
-    m_unStopEdge = 2;
-    m_unStopBox = 2;
-    m_unStopTime = 0;
     m_fObjectiveFunction = 0;
 
     m_tRobotStates.clear();
-
+    m_tObjectStates.clear();
+    
     InitRobotStates();
     InitObjectStates();
 }
@@ -326,7 +323,8 @@ void ToffiPuLoopFunction::PositionArena() {
                              1.0f);
 
 
- CWallEntity* wall_0 = new CWallEntity(pcArena, "wall_0",
+
+   CWallEntity* wall_0 = new CWallEntity(pcArena, "wall_0",
                                      CVector3(0.7134,0.7134,0),
                              CQuaternion().FromEulerAngles(-3*CRadians::PI_OVER_FOUR,CRadians::ZERO,CRadians::ZERO), // TODO
                              CVector3(0.01,0.25,0.1),
@@ -367,12 +365,6 @@ void ToffiPuLoopFunction::PositionArena() {
      pcArena->AddWall(*wall_2);  
      pcArena->AddWall(*wall_3);  
 
-     m_pcWalls.push_back(wall_0);
-     m_pcWalls.push_back(wall_1);
-     m_pcWalls.push_back(wall_2);
-     m_pcWalls.push_back(wall_3);
-
-
 
   AddEntity(*pcArena);
   m_pcArena = pcArena;
@@ -385,10 +377,6 @@ void ToffiPuLoopFunction::RemoveArena() {
     std::ostringstream id;
     id << "arena";
     RemoveEntity(id.str().c_str());
-
-    for (int i=0; i<m_pcWalls.size(); i++) {
-        delete m_pcWalls.at(i);
-    }
 }
 
 /****************************************/

@@ -2,7 +2,7 @@
 # Set minimum required version
 #
 cmake_minimum_required(VERSION 2.8)
-
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
 #
 # Make sure we are under Unix
 #
