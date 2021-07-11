@@ -1,0 +1,1 @@
+./automode_main -c /home/piotrek/tuttifrutti-software/tuttifrutti/experiments-loop-functions/scenarios/tuttifrutti/tuttiStop.argos --fsm-config --type 0 --nstates 2 --s0 9 --vel0 1.0 --cle0 0 --clr0 4 --n0 3 --n0x0 0 --c0x0 7 --p0x0 0.89 --l0x0 4 --n0x1 0 --c0x1 7 --p0x1 0.87 --l0x1 1 --n0x2 0 --c0x2 7 --p0x2 0.89 --l0x2 4 --s1 1 --cle1 4 --n1 1 --n1x0 0 --c1x0 0 --p1x0 0.11
